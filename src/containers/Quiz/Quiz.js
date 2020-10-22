@@ -4,23 +4,61 @@ import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz'
 
 class Quiz extends Component {
 	state = {
-		activeAnswer: 0,
+		activeQuestion: 0,
 		quiz: [
 			{
-				question: "Какое у тебя настроение?",
-				rightAnswerId: 1,
+				question: "Когда вышел ES6?",
+				rightAnswerId: 2,
+				id: 0,
 				answers: [
-					{text: 'Отлично', id: 1},
-					{text: 'Хорошо', id: 2},
-					{text: 'Относительно', id: 3},
-					{text: 'Плохо', id: 4},
+					{text: '2013', id: 1},
+					{text: '2015', id: 2},
+					{text: '2017', id: 3},
+					{text: 'Он ещё не вышел', id: 4},
 				]
-			}
+			},
+			{
+				question: "React - это?",
+				rightAnswerId: 3,
+				id: 1,
+				answers: [
+					{text: 'Фреймворк', id: 1},
+					{text: 'Плагин', id: 2},
+					{text: 'Библиотека', id: 3},
+					{text: 'Фэйсбук', id: 4},
+				]
+			},
+			{
+				question: "Самый быстрый язык программирования, из работающих в браузере?",
+				rightAnswerId: 3,
+				id: 2,
+				answers: [
+					{text: 'С++', id: 1},
+					{text: 'Python', id: 2},
+					{text: 'JavaScript', id: 3},
+					{text: 'TypeScript', id: 4},
+				]
+			},
+			{
+				question: "JQuery - это?",
+				rightAnswerId: 1,
+				id: 3,
+				answers: [
+					{text: 'Библиотека', id: 1},
+					{text: 'Плагин', id: 2},
+					{text: 'Фреймворк', id: 3},
+					{text: 'Движок JS', id: 4},
+				]
+			},
 		]
 	}
 
 	onAnswerClickHandler = answerId => {
 		console.log('Answer Id: ', answerId)
+
+		this.setState({
+			activeQuestion: this.state.activeQuestion + 1
+		})
 	}
 
 	render() {
@@ -29,9 +67,9 @@ class Quiz extends Component {
 				<div className={classes.QuizWrapper}>
 					<h1>Ответьте на все вопросы</h1>
 					<ActiveQuiz 
-						answers={this.state.quiz[0].answers}
-						number={this.state.activeAnswer + 1}
-						question={this.state.quiz[0].question}
+						answers={this.state.quiz[this.state.activeQuestion].answers}
+						number={this.state.activeQuestion + 1}
+						question={this.state.quiz[this.state.activeQuestion].question}
 						onAnswerClick={this.onAnswerClickHandler}
 						quizLength={this.state.quiz.length}
 					/>

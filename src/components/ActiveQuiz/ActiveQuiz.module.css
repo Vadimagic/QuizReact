@@ -17,3 +17,9 @@
 	display: flex;
 	justify-content: space-between;
 }
+
+.ActiveNumber {
+	display: flex;
+	justify-content: flex-end;
+	min-width: 80px;
+}
