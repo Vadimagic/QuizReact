@@ -6,7 +6,8 @@ const AnswersList = props => (
 	<ul className={classes.AnswersList}>
 		{props.answers.map((answer) => {
 			return (
-				<AnswerItem 
+				<AnswerItem
+					state={props.state ? props.state[answer.id] : null}
 					answer={answer} 
 					key={answer.id}
 					onAnswerClick={props.onAnswerClick}
