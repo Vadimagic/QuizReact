@@ -15,7 +15,7 @@
 .FinishedQuiz ul li i {
 	margin-left: 10px;
 }
-
+/* 
 .FinishedQuiz button {
 	border: 2px solid #fff;
 	background: inherit;
@@ -24,7 +24,7 @@
 	padding: 5px 10px;
 	font-weight: 700;
 	cursor: pointer;
-}
+} */
 
 .success {
 	color: rgba(2, 220, 89, 0.641)
