@@ -36,3 +36,9 @@
 .primary {
 	background-color: #2884f6;
 }
+
+@media(max-width: 400px) {
+	.Button:nth-child(1n + 2) {
+		margin-top: 15px;
+	}
+}
