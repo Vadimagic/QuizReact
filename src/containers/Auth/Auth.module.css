@@ -1,3 +1,33 @@
 .Auth {
-	
+	display: flex;
+	justify-content: center;
+	padding-top: 100px;
+	flex-grow: 1;
+	width: 100%;
+	background: linear-gradient(270deg, #cef2fa 0%, #59bfef 100%);
+	color: #fff;
+}
+
+.Auth > div {
+	width: 100%;
+	max-width: 600px;
+	padding: 0 20px;
+	text-align: center;
+}
+
+.Auth h1 {
+	text-align: center;
+}
+
+.AuthForm {
+	display: inline-flex;
+	flex-direction: column;
+	background: #eee;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.5);
+	padding: 15px;
+	border-radius: 10px;
+}
+
+.AuthForm *:nth-child(n + 2) {
+	margin-top: 10px;
 }
