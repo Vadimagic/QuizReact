@@ -34,9 +34,15 @@
 	background-color: #fff;
 	position: relative;
 	padding: 0 20px 10px 20px;
-	transition: all .3s ease-in;
+	transition: opacity .3s ease-in;
+	margin-left: 2px;
 }
 
-.Drawer ul li a:hover, active {
+.Drawer ul li a:hover {
 	opacity: .7;
+}
+
+.Drawer ul li a.active {
+	margin-left: 0px;
+	border-left: 2px solid #000;
 }
