@@ -10,10 +10,12 @@
 }
 
 .Input input {
+	font-size: 14px;
 	display: block;
 	box-sizing: border-box;
 	border: 2px solid #bebebe;
-	padding: 7px;
+	border-radius: 4px;
+	padding: 5px;
 	margin: 0 0 5px;
 	width: 100%;
 	outline: none;
