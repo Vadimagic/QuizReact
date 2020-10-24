@@ -20,8 +20,8 @@
 }
 
 .Button:disabled {
-	border: 2px solid #bbb;
-	color: #bbb;
+	border: 2px solid #ddd;
+	color: #ddd;
 	cursor: not-allowed;
 }
 

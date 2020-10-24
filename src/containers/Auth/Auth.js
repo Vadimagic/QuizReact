@@ -47,11 +47,44 @@ export default class Auth extends Component {
 		e.preventDefault()
 	}
 
+	validateControl(value, validation) {
+		if (!validation) {
+			return true
+		}
+
+		let isValid = true;
+		value = value.trim()
+
+		if (validation.require) {
+			isValid = value !== '' && isValid
+		}
+
+		if (validation.email) {
+			return /^(([^<>()\\.,;:\s@"]+(\.[^<>()\\.,;:\s@"]+)*)|(".+"))@(([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|(([a-z\-0-9]+\.)+[a-z]{2,}))$/i.test(value) && isValid
+		}
+
+		if (validation.minLength) {
+			isValid = value.length >= 6 && isValid
+		}
+
+		if (validation.maxLength) {
+			isValid = value.length <= 20 && isValid
+		}
+
+		return isValid;
+	}
+
 	onChangeHandler = (event, controlName) => {
-		console.log(`${controlName}: ${event.target.value} : ${typeof(event.target.value)} : ${event.target.value[event.target.value.length - 1]}`)
-		const stateCopy = this.state;
-		stateCopy.formControls[controlName].value = event.target.value;
-		this.setState(stateCopy)
+		const formControls = {...this.state.formControls}
+		const control = formControls[controlName]
+
+		control.value = event.target.value
+		control.touched = true
+		control.valid = this.validateControl(control.value, control.validation)
+
+		this.setState({
+			formControls
+		})
 	}
 
 	renderInputs() {
