@@ -16,7 +16,7 @@ export default class Auth extends Component {
 				valid: false,
 				touched: false,
 				validation: {
-					require: true,
+					required: true,
 					email: true
 				}
 			},
@@ -28,7 +28,7 @@ export default class Auth extends Component {
 				valid: false,
 				touched: false,
 				validation: {
-					require: true,
+					required: true,
 					minLength: 6,
 					maxLength: 16
 				}
@@ -56,7 +56,7 @@ export default class Auth extends Component {
 		let isValid = true;
 		value = value.trim()
 
-		if (validation.require) {
+		if (validation.required) {
 			isValid = value !== '' && isValid
 		}
 
@@ -75,11 +75,11 @@ export default class Auth extends Component {
 		return isValid;
 	}
 
-	onChangeHandler = (event, controlName) => {
+	onChangeHandler = (value, controlName) => {
 		const formControls = {...this.state.formControls}
 		const control = formControls[controlName]
 
-		control.value = event.target.value
+		control.value = value
 		control.touched = true
 		control.valid = this.validateControl(control.value, control.validation)
 
@@ -105,8 +105,8 @@ export default class Auth extends Component {
 					errorMessage={control.errorMessage}
 					valid={control.valid}
 					touched={control.touched}
-					shouldValidate={control.validation.require}
-					onChange={(event) => this.onChangeHandler(event, controlName)}
+					shouldValidate={!!control.validation}
+					onChange={(event) => this.onChangeHandler(event.target.value, controlName)}
 				/>
 			)
 		})
