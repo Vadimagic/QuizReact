@@ -6,6 +6,7 @@ import classes from './Auth.module.css'
 export default class Auth extends Component {
 
 	state = {
+		isFormValid: false, 
 		formControls : {
 			email: {
 				value: '',
@@ -82,7 +83,12 @@ export default class Auth extends Component {
 		control.touched = true
 		control.valid = this.validateControl(control.value, control.validation)
 
+		const isFormValid = !Object.keys(formControls).reduce((valid, item) => {
+			return valid || !formControls[item].valid
+		} , false)
+
 		this.setState({
+			isFormValid,
 			formControls
 		})
 	}
@@ -117,12 +123,14 @@ export default class Auth extends Component {
 						<Button 
 							type="success" 
 							onClick={this.loginHandler}
+							disabled={!this.state.isFormValid}
 						>
 							Войти
 						</Button>
 						<Button 
 							type="primary" 
 							onClick={this.registerHandler}
+							disabled={!this.state.isFormValid}
 						>
 							Зарегистрироваться
 						</Button>
