@@ -1,10 +1,12 @@
 .QuizCreator {
+	color: #fff;
 	display: flex;
 	justify-content: center;
 	padding-top: 50px;
 	flex-grow: 1;
 	width: 100%;
-	background: linear-gradient(270deg, #f0613c 0%, #f0783c 100%)
+	background: linear-gradient(270deg, #4f3cf0 0%, #f03cb8 100%);
+	padding-bottom: 50px;
 }
 
 .QuizCreator > div {
@@ -18,7 +20,7 @@
 }
 
 .QuizCreator form {
-	background: #eee;
+	background: #8339a2;
 	border-radius: 10px;
 	padding: 15px;
 	box-shadow: 2px 2px 2px rgba(0,0,0,.5);
